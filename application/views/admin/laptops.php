@@ -1,0 +1,7 @@
+<?=$header?>
+
+<?php
+	echo"Hallo";
+?>
+
+<?=$footer?>
