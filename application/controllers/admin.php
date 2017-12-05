@@ -41,6 +41,11 @@ class Admin extends MY_Controller {
     }
 
     public function laptops(){
+
+        $this->load->model('user_model');
+        
+        $this->data['laptop'] = $this->user_model->getlaptops();
+                
         $this->load->view('admin/laptops', $this->data);
     }
     

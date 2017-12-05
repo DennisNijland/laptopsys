@@ -74,6 +74,8 @@ class Dashboard extends MY_Controller {
 
     public function account()
     {
+        $this->load->model('user_model');
+        $this->data['user'] = $this->user_model->get();
         $this->load->view('inc/header');
         $this->load->view('dashboard/account', $this->data);
         $this->load->view('inc/footer');

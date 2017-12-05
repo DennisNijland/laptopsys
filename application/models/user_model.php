@@ -32,7 +32,6 @@ class User_model extends CI_Model
 
     public function getlaptops(){
         $query = $this->db->get('laptop');
-
         return $query->result();
     }
     
@@ -87,4 +86,5 @@ class User_model extends CI_Model
     
     // ------------------------------------------------------------------------
     
+   
 }

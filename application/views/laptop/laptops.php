@@ -14,7 +14,18 @@
 <tr>
     <td><?=$_value->id?></td>
     <td><?=$_value->naam?></td>
-    <td><!--<a href="<?=site_url("admin/delete_user/{$_value->user_id}")?>">-->Delete</a></td>
+    <!--<td><?=$_value->status?></td>-->
+
+    <td>
+    	<?php
+    	if ($_value->status == 1) {?>
+    		<a href="<?=site_url("admin/delete_user/{$_value->user_id}")?>"><?
+    	}
+    	elseif ($_value->status == 0) {
+    		echo "Bezet";
+    	}?>
+    	
+    </td>
 </tr>
 <?php endforeach;?>
 </tbody>

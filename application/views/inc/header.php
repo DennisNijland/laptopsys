@@ -23,7 +23,7 @@
                 <h1>Admin Panel</h1>
 
                 <nav>
-                    Manage Users | <a href="<?=site_url('admin/logout')?>">Uitloggen</a> | <a href="<?=site_url('admin/laptops')?>">Laptops</a>
+                    <a href="<?=site_url('admin/home')?>">Manage Users</a> | <a href="<?=site_url('admin/laptops')?>">Laptops</a> | <a href="<?=site_url('admin/logout')?>">Uitloggen</a>
                 </nav>
 
             <?php else:?>

@@ -23,6 +23,7 @@ class Home extends MY_Controller {
         $date_added =$this->input->post('date_added');     
         $this->load->model('user_model');
         $this->user_model->create($email, $password, $date_added);
+        redirect(site_url('home'));
     }
     
     // ------------------------------------------------------------------------
