@@ -6,7 +6,7 @@
     Email:<input type="text" name="email" />
     <br>
     Wachtwoord:<input type="password" name="password" />
-    <input type="submit" />
+    <input type="submit"/>
 </form>
 
 <?=$footer?>

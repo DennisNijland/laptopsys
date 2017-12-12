@@ -12,6 +12,7 @@
 <thead>
     <th>ID</th>
     <th>Email</th>
+    <th>Laptop</th>
     <th>Options</th>
 </thead>
 <tbody>

@@ -18,12 +18,13 @@
 
     <td>
     	<?php
-    	if ($_value->status == 1) {?>
-    		<a href="<?=site_url("admin/delete_user/{$_value->user_id}")?>"><?
+    	if ($_value->status == 1) {
+    		echo "<a href=".(site_url("laptop/kies_laptop/{$_value->user_id}")).">Beschikbaar</a>";
     	}
     	elseif ($_value->status == 0) {
     		echo "Bezet";
-    	}?>
+    	}
+    	?>
     	
     </td>
 </tr>

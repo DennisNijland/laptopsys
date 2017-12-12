@@ -69,7 +69,6 @@ class Admin extends MY_Controller {
             $this->session->set_userdata('is_admin', 1);
             redirect(site_url('admin/home'));
         } else {
-            echo "Geen admin";
             redirect(site_url('admin/login'));
                         
 
