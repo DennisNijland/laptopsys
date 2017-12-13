@@ -41,11 +41,18 @@ class Dashboard extends MY_Controller {
         $password = $this->input->post('password');
         
         $this->load->model('user_model');
-        $result = $this->user_model->login('user', $email, $password);
+        $result = $this->user_model->login('type', $email, $password);
         
         if ($result == true) {
-            $this->session->set_userdata('user_id', 1);
-            redirect(site_url('dashboard/home'));
+            if ($type = 'user') {
+                $this->session->set_userdata('user_id', 1);
+                redirect(site_url('dashboard/home'));
+            }elseif ($type = 'admin') {
+                $this->session->set_userdata('user_id', 1);
+                $this->session->set_userdata('is_admin', 1);
+                redirect(site_url('admin/home'));
+            }
+            
         } else {
             redirect(site_url('dashboard/login'));
         }
@@ -74,8 +81,6 @@ class Dashboard extends MY_Controller {
 
     public function account()
     {
-        $this->load->model('user_model');
-        $this->data['user'] = $this->user_model->get();
         $this->load->view('inc/header');
         $this->load->view('dashboard/account', $this->data);
         $this->load->view('inc/footer');
