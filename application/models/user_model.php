@@ -30,6 +30,12 @@ class User_model extends CI_Model
         return $query->result();
     }
 
+    public function gettype(){
+        $this->db->select('type');
+        $this->db->where('user_id', '11');
+        $this->db->get('user');
+    }
+
     public function getlaptops(){
         $query = $this->db->get('laptop');
         return $query->result();
@@ -48,8 +54,10 @@ class User_model extends CI_Model
      */
     public function login($type, $email, $password)
     {
+
+        
         $query = $this->db->get_where('user', [
-            'type' => $type,
+            'type' => 'user',
             'email' => $email,
             'password' => sha1($password . HASH_KEY)
         ]);
