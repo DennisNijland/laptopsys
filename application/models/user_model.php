@@ -31,9 +31,8 @@ class User_model extends CI_Model
     }
 
     public function gettype(){
-        $this->db->select('type');
-        $this->db->where('user_id', '11');
-        $this->db->get('user');
+        $query = $this->db->query('SELECT `type` FROM `user` WHERE `email` = '.$email.'');
+        return $query->result();
     }
 
     public function getlaptops(){
@@ -58,7 +57,7 @@ class User_model extends CI_Model
         
         $query = $this->db->get_where('user', [
             'type' => 'user',
-            'email' => $email,
+            'email' => 'email',
             'password' => sha1($password . HASH_KEY)
         ]);
         

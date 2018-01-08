@@ -41,7 +41,7 @@ class Dashboard extends MY_Controller {
     
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        //$type = $this->user_model->gettype();
+        $type = $this->user_model->gettype($email);
         
         //var_dump($type);
         //die;
