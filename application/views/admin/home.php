@@ -4,7 +4,7 @@
 
 <form action="<?=site_url('admin/create_user')?>" method="post">
     Email: <input type="text" name="email" />
-    Wachtwoord: <input type="password" name="password" />
+    Wachtwoord: <input type="password" name="password" required />
     <input type="submit" />
 </form>
 <br>

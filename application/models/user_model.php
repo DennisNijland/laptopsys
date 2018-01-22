@@ -11,7 +11,6 @@ class User_model extends CI_Model
     }
     
     // ------------------------------------------------------------------------
-    
     /**
      * Get one or many users
      * 
@@ -30,10 +29,10 @@ class User_model extends CI_Model
         return $query->result();
     }
 
-    public function gettype(){
-        $query = $this->db->query('SELECT `type` FROM `user` WHERE `email` = '.$email.'');
-        return $query->result();
-    }
+    //public function gettype(){
+    //    $query = $this->db->query('SELECT `type` FROM `user` WHERE `email` = '.$email.'');
+   //     return $query->result();
+  //  }
 
     public function getlaptops(){
         $query = $this->db->get('laptop');
@@ -52,12 +51,10 @@ class User_model extends CI_Model
      * @return array
      */
     public function login($type, $email, $password)
-    {
-
-        
+     {
         $query = $this->db->get_where('user', [
-            'type' => 'user',
-            'email' => 'email',
+            'type' => $type,
+            'email' => $email,
             'password' => sha1($password . HASH_KEY)
         ]);
         

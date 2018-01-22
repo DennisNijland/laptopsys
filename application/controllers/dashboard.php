@@ -38,30 +38,19 @@ class Dashboard extends MY_Controller {
             $this->load->view('dashboard/login', $this->data);
             return true;
         }
-    
+        
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $type = $this->user_model->gettype($email);
         
-        //var_dump($type);
-        //die;
+        $this->load->model('user_model');
+        $result = $this->user_model->login('user', $email, $password);
         
-        $result = $this->user_model->login('type',$email, $password);
-        
-        //var_dump($type);
-       // die;        
-       if ($result == true) {
-            if ($type = 'user') {
-                $this->session->set_userdata('user_id', 1);
-                redirect(site_url('dashboard/home'));
-            }elseif ($type = 'admin') {
-                $this->session->set_userdata('user_id', 1);
-                $this->session->set_userdata('is_admin', 1);
-                redirect(site_url('admin/home'));
-            }
-       } else {
+        if ($result == true) {
+            $this->session->set_userdata('user_id', 1);
+            redirect(site_url('dashboard/home'));
+        } else {
             redirect(site_url('dashboard/login'));
-       }
+        }
     }
 
     public function create_user()
@@ -76,9 +65,8 @@ class Dashboard extends MY_Controller {
     // ------------------------------------------------------------------------
 
     public function home()
-    {
+     {
         $this->load->view('inc/header');
-        $this->data['user'] = $this->user_model->gettype();
         $this->load->view('dashboard/home', $this->data);
         $this->load->view('inc/footer');
     }

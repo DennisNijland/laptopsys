@@ -14,12 +14,10 @@
 <tr>
     <td><?=$_value->id?></td>
     <td><?=$_value->naam?></td>
-    <!--<td><?=$_value->status?></td>-->
-
     <td>
     	<?php
     	if ($_value->status == 1) {
-    		echo "<a href=".(site_url("laptop/kies_laptop/{$_value->user_id}")).">Beschikbaar</a>";
+    		//echo "<a href=".(site_url("laptop/reserve/{$_value->user_id}")).">Beschikbaar</a>";
     	}
     	elseif ($_value->status == 0) {
     		echo "Bezet";
@@ -32,10 +30,5 @@
 </tbody>
 </table>
 
-<?php
-
-echo "Dit is laptop/laptops";
-
-?>
 
 <?=$footer?>

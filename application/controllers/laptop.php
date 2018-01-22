@@ -31,8 +31,15 @@ class Laptop extends MY_Controller {
     {
 		$this->load->model('user_model');
         
+        $this->data['users'] = $this->user_model->get();
+
         $this->data['laptop'] = $this->user_model->getlaptops();
         
         $this->load->view('laptop/laptops', $this->data);
+    }
+
+    public function reserve()
+    {
+       $this->load->model('user_model'); 
     }
 }

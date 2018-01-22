@@ -21,7 +21,6 @@
     	}
     	?>
     </td>
-    <td><!--<a href="<?=site_url("admin/delete_user/{$_value->user_id}")?>">-->Delete</a></td>
 </tr>
 <?php endforeach;?>
 </tbody>

@@ -92,6 +92,7 @@ class Admin extends MY_Controller {
         $date_added =$this->input->post('date_added');     
         $this->load->model('user_model');
         $this->user_model->create($email, $password, $date_added);
+        redirect(site_url('admin/home'));
     }
     
     // ------------------------------------------------------------------------
@@ -100,7 +101,7 @@ class Admin extends MY_Controller {
     {
         $this->load->model('user_model');
         echo $this->user_model->delete($user_id);
-        
+        redirect(site_url('admin/home')); 
     }
     
     // ------------------------------------------------------------------------
