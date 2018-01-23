@@ -2,7 +2,6 @@
 
 <h1>Laptops</h1>
 
-
 <table border="1">
 <thead>
     <th>ID</th>
@@ -17,7 +16,7 @@
     <td>
     	<?php
     	if ($_value->status == 1) {
-    		//echo "<a href=".(site_url("laptop/reserve/{$_value->user_id}")).">Beschikbaar</a>";
+    		echo "<a href=".(site_url("laptop/detail/{$_value->laptop_id}")).">Beschikbaar</a>";
     	}
     	elseif ($_value->status == 0) {
     		echo "Bezet";

@@ -38,8 +38,10 @@ class Laptop extends MY_Controller {
         $this->load->view('laptop/laptops', $this->data);
     }
 
-    public function reserve()
+    public function detail()
     {
-       $this->load->model('user_model'); 
+       $this->load->model('user_model');
+ 
+       $this->load->view('laptop/detail', $this->data);
     }
 }
