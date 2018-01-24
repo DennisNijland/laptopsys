@@ -14,7 +14,7 @@ class Laptop extends MY_Controller {
         
         $section = end($this->uri->segment_array());
         if ($section != 'login' && $section != 'submit' 
-                && $this->session->userdata('user_id') == false
+                && $this->session->userdata('is_logged_in') == false
                 ) {
             redirect(site_url('dashboard/login'));
         }
@@ -41,7 +41,7 @@ class Laptop extends MY_Controller {
     public function detail()
     {
        $this->load->model('user_model');
- 
+       
        $this->load->view('laptop/detail', $this->data);
     }
 }

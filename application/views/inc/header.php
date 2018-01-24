@@ -13,7 +13,7 @@
     <div class="container">
         <div id="wrapper">
             <div id="menu">
-                <?php if ($this->session->userdata('user_id') == false):?>
+                <?php if ($this->session->userdata('is_logged_in') == false):?>
 
                     <h1>Laptop Uitleensysteem</h1>
 

@@ -15,7 +15,7 @@ class Admin extends MY_Controller {
         
         $section = end($this->uri->segment_array());
         if ($section != 'login' && $section != 'submit' 
-                && $this->session->userdata('user_id') == false
+                && $this->session->userdata('is_logged_in') == false
                 && $this->session->userdata('is_admin') == false
                 ) {
             redirect(site_url('admin/login'));
@@ -65,7 +65,7 @@ class Admin extends MY_Controller {
         $result = $this->user_model->login('admin', $email, $password);
                 
         if ($result == true) {
-            $this->session->set_userdata('user_id', 1);
+            $this->session->set_userdata('is_logged_in', 1);
             $this->session->set_userdata('is_admin', 1);
             redirect(site_url('admin/home'));
         } else {

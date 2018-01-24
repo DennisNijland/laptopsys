@@ -17,7 +17,7 @@ class Dashboard extends MY_Controller {
         
         $section = end($this->uri->segment_array());
         if ($section != 'login' && $section != 'submit' 
-                && $this->session->userdata('user_id') == false
+                && $this->session->userdata('is_logged_in') == false
                 ) {
             redirect(site_url('dashboard/login'));
         }
@@ -46,7 +46,8 @@ class Dashboard extends MY_Controller {
         $result = $this->user_model->login('user', $email, $password);
         
         if ($result == true) {
-            $this->session->set_userdata('user_id', 1);
+            $this->session->set_userdata('email', $email);
+            $this->session->set_userdata('is_logged_in', 1);
             redirect(site_url('dashboard/home'));
         } else {
             redirect(site_url('dashboard/login'));
@@ -76,9 +77,10 @@ class Dashboard extends MY_Controller {
 
     public function account()
     {
-        $this->data['users'] = $this->user_model->get();
+        $data['session'] = $this->session->userdata('email');
+        $data['users'] = $this->user_model->get();
         $this->load->view('inc/header');
-        $this->load->view('dashboard/account', $this->data);
+        $this->load->view('dashboard/account', $data);
         $this->load->view('inc/footer');
     }
     
